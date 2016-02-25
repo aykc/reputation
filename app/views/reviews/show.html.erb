@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @review.name %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @review.item.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @review.user.email %>
+</p>
+
+<div>reputation: <%= @review.reputation_for(:points) %></div>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
+

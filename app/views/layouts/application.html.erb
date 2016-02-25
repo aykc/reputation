@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rep</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div>
+    <% if current_user %>
+      logged as: <%= current_user.email %>
+      (<%= current_user.reputation_for(:karma)%>)
+      <%= link_to 'logout', destroy_user_session_path %>
+    <% else %>
+      <%= link_to 'sign up', new_user_registration_path %>
+      <%= link_to 'login', new_user_session_path %>
+    <% end %>
+  </div>
+
+<%= yield %>
+
+</body>
+</html>
